@@ -1,0 +1,68 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://github.com/instawork/skills
+docs: https://github.com/instawork/skills/blob/main/skills/find-workers/SKILL.md
+server:
+  name: instawork-partner
+  description: >-
+    Instawork Partner MCP server. Lets business partners find hourly workers and
+    book shifts on the Instawork flexible-staffing marketplace using natural
+    language. Only the USA and Canada are supported; long-term and permanent
+    staffing are not supported.
+  transport: http
+  url: https://finch.instawork.com/mcp/partner/
+  auth:
+    type: oauth2
+    flow: authorization_code
+    pkce: S256
+    dynamic_client_registration: true
+    scopes: [read, write]
+    protected_resource_metadata: https://finch.instawork.com/.well-known/oauth-protected-resource/mcp/partner
+    authorization_server_metadata: https://finch.instawork.com/.well-known/oauth-authorization-server/mcp/partner
+  install:
+    claude_code: claude mcp add instawork-partner -- npx mcp-remote https://finch.instawork.com/mcp/partner/
+    mcp_json: |
+      {
+        "mcpServers": {
+          "instawork-partner": {
+            "command": "npx",
+            "args": ["mcp-remote", "https://finch.instawork.com/mcp/partner/"]
+          }
+        }
+      }
+tools:
+  - name: searchCompanyLocations
+    description: Search for company locations, optionally filtered by a search query
+  - name: getPositions
+    description: Get a list of all available positions
+  - name: getPositionTemplates
+    description: Get all available position templates for a company
+  - name: getPositionTemplateDetails
+    description: Get the details of a position template
+  - name: getDefaultPositionTemplateForPosition
+    description: Get the default position template for a position
+  - name: getInstructionsOptions
+    description: Get available attire, grooming, and requirements options for a position
+  - name: getBreakLength
+    description: Get applicable break rules for a given state and shift length
+  - name: getPaymentOptions
+    description: Get available payment options for the partner, optionally filtered by location
+  - name: getOnsiteContacts
+    description: Get team members that can be added as onsite contacts
+  - name: getBookingPricing
+    description: Get initial, floor, recommended, and maximum bill rates for a booking
+  - name: getBookingTemplates
+    description: Get booking templates available for rebooking, filtered by location and/or position
+  - name: getBookingTemplateDetailsForRebooking
+    description: Get pre-filled booking data from a booking template
+  - name: getShiftgroupDetailsForRebooking
+    description: Get pre-filled booking data from a previous shift group
+  - name: searchShiftgroups
+    description: Search for shift groups by location, position, timeframe, and date range
+  - name: searchRosteredPros
+    description: Search for rostered professionals by location, name, or position
+  - name: createDraftBooking
+    description: Create a draft booking with positions, shifts, pricing, and roster details
+  - name: createBooking
+    description: Create and confirm a booking with positions, shifts, pricing, payment, and roster details

@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: searched
+source: https://finch.instawork.com/.well-known/oauth-authorization-server/mcp/partner
+docs: https://github.com/instawork/skills/blob/main/skills/find-workers/setup.md
+schemes:
+  - name: OAuth2
+    source: well-known/instawork-oauth-authorization-server.json
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://finch.instawork.com/mcp/partner/authorize
+        tokenUrl: https://finch.instawork.com/mcp/partner/token
+scopes:
+  - scope: read
+    description: Read access to partner staffing data — company locations, positions, position templates, pricing, break rules, payment options, onsite contacts, booking templates, shift groups, and rostered pros.
+    flows: [authorizationCode]
+    sources: [well-known/instawork-oauth-authorization-server.json]
+  - scope: write
+    description: Create draft and confirmed shift bookings on behalf of the partner.
+    flows: [authorizationCode]
+    sources: [well-known/instawork-oauth-authorization-server.json]

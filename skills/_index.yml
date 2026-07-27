@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/instawork/skills
+note: >-
+  Agent Skill published by Instawork for AI coding assistants (Cursor, Claude
+  Code, Claude Desktop). Grounded in the Instawork Partner MCP server tools, not
+  a REST API. Saved verbatim from the provider repository.
+skills:
+  - file: instawork-find-workers.md
+    name: find-workers
+    description: Guides finding workers and booking shifts on the Instawork platform for business partners via the Instawork Partner MCP server.
+    api: mcp/instawork-mcp.yml
+    setup: setup.md
+    operations:
+      - searchCompanyLocations
+      - getPositions
+      - getPositionTemplates
+      - getPositionTemplateDetails
+      - getDefaultPositionTemplateForPosition
+      - getInstructionsOptions
+      - getBreakLength
+      - getPaymentOptions
+      - getOnsiteContacts
+      - getBookingPricing
+      - getBookingTemplates
+      - getBookingTemplateDetailsForRebooking
+      - getShiftgroupDetailsForRebooking
+      - searchShiftgroups
+      - searchRosteredPros
+      - createDraftBooking
+      - createBooking

@@ -1,0 +1,28 @@
+generated: '2026-07-19'
+method: searched
+source: https://finch.instawork.com/.well-known/oauth-authorization-server/mcp/partner
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: Partner MCP server advertises an OAuth 2.0 authorization server (authorize/token endpoints, authorization_code + refresh_token grants).
+  - id: oauth2-pkce
+    conforms: true
+    evidence: code_challenge_methods_supported includes S256 (RFC 7636).
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server/mcp/partner returns 200 with issuer + endpoint metadata.
+  - id: rfc9728-oauth-protected-resource-metadata
+    conforms: true
+    evidence: /.well-known/oauth-protected-resource/mcp/partner returns 200; 401 responses carry WWW-Authenticate resource_metadata.
+  - id: rfc7591-dynamic-client-registration
+    conforms: true
+    evidence: registration_endpoint present and client_id_metadata_document_supported true.
+  - id: model-context-protocol
+    conforms: true
+    evidence: Hosted MCP server at finch.instawork.com/mcp/partner responding to JSON-RPC over HTTP with MCP OAuth authorization.
+  - id: oidc
+    conforms: false
+    evidence: No /.well-known/openid-configuration published; OAuth is used for authorization, not OIDC identity.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No public OpenAPI or documented problem+json error envelope.

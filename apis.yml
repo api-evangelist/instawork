@@ -1,8 +1,30 @@
 aid: instawork
 name: Instawork
-description: 'Instawork is a company surfaced as a portfolio company of craft-ventures, greylock, gv,
-  y-combinator and added to the API Evangelist network as a stub for enrichment. Sector: marketplace.
-  This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Instawork is a flexible-staffing marketplace that connects businesses in
+  hospitality, warehouse, events, retail, and food service with vetted hourly
+  workers ("Pros") for short-term shifts across the USA and Canada. Businesses
+  post or rebook shifts and Instawork's ML-driven "Smart assign" matching fills
+  them, often within hours. Instawork's developer surface is agent-native:
+  rather than a public REST API it ships a hosted Partner MCP server
+  (finch.instawork.com/mcp/partner) secured with OAuth 2.1, plus a published
+  Agent Skill (github.com/instawork/skills) that lets AI assistants such as
+  Claude and Cursor search locations and positions, price shifts, and create
+  bookings on a business partner's behalf. Backed by Craft Ventures, Greylock,
+  GV, and Y Combinator.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/63fd26f2fd0da53e0276079c/649a16c8f69460000a219a25_Instawork-OG-Image-blue.png
 url: https://raw.githubusercontent.com/api-evangelist/instawork/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -15,16 +37,79 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Marketplace
-apis: []
+- Staffing
+- Gig Economy
+- Hospitality
+- Workforce
+- Labor
+- MCP
+- Agent
+apis:
+- name: Instawork Partner MCP Server
+  description: >-
+    Hosted Model Context Protocol server that lets business partners find hourly
+    workers and book shifts on Instawork using natural language via an AI
+    assistant. Secured with OAuth 2.1 (PKCE + dynamic client registration).
+    Only the USA and Canada are supported.
+  humanURL: https://github.com/instawork/skills
+  baseURL: https://finch.instawork.com/mcp/partner/
+  tags:
+  - MCP
+  - Staffing
+  - Booking
+  properties:
+  - type: MCPServer
+    url: mcp/instawork-mcp.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: Authentication
+    url: authentication/instawork-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: MCPServer
+  url: mcp/instawork-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/instawork-authentication.yml
+- type: OAuthScopes
+  url: scopes/instawork-scopes.yml
+- type: WellKnown
+  url: well-known/instawork-well-known.yml
+- type: Conformance
+  url: conformance/instawork-conformance.yml
+- type: DomainSecurity
+  url: security/instawork-domain-security.yml
+- type: Documentation
+  url: https://github.com/instawork/skills
+- type: GitHubOrganization
+  url: https://github.com/instawork
+- type: Support
+  url: https://help.instawork.com
+- type: Blog
+  url: https://engineering.instawork.com
+- type: Pricing
+  url: https://www.instawork.com/pricing
+- type: SignUp
+  url: https://www.instawork.com/business
+- type: Login
+  url: https://www.instawork.com/login
+- type: TermsOfService
+  url: https://app.instawork.com/legal/instawork-terms-of-use
+- type: PrivacyPolicy
+  url: https://app.instawork.com/legal/instawork-privacy-policy
 - type: Website
   url: https://instawork.com
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

@@ -1,0 +1,1 @@
+{"resource":"https://finch.instawork.com/mcp/partner","authorization_servers":["https://finch.instawork.com/mcp/partner"],"scopes_supported":["read","write"],"bearer_methods_supported":["header"]}
