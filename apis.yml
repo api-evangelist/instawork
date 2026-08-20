@@ -47,6 +47,16 @@ tags:
 - Workforce
 - Labor
 - MCP
+- Agents
+tags_raw:
+- Company
+- Marketplace
+- Staffing
+- Gig Economy
+- Hospitality
+- Workforce
+- Labor
+- MCP
 - Agent
 apis:
 - name: Instawork Partner MCP Server
